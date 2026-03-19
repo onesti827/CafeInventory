@@ -45,5 +45,6 @@ public class RestockTransaction extends AuditableEntity {
     @NotNull
     @Column(nullable = false)
     private Integer newQuantity;
+    private String note;
 
 }
