@@ -1,0 +1,42 @@
+### Create ingredient
+POST http://localhost:8080/api/ingredients
+Content-Type: application/json
+
+{
+  "name": "Whole Milk",
+  "category": "PERISHABLE",
+  "perishableGroup": "DRINKS",
+  "ingredientType": "MILK",
+  "unit": "ML",
+  "quantity": 2000,
+  "threshold": 500
+}
+
+### List ingredients
+GET http://localhost:8080/api/ingredients
+
+### Restock ingredient
+POST http://localhost:8080/api/ingredients/1/restock
+Content-Type: application/json
+
+{
+  "amountAdded": 300,
+  "note": "Supplier delivery"
+}
+
+###
+GET http://localhost:8080/api/ingredients/1/restocks
+
+###
+
+POST http://localhost:8080/api/ingredients
+Content-Type: application/json
+
+{
+  "name": "",
+  "category": "PERISHABLE",
+  "unit": "ML",
+  "quantity": -1,
+  "threshold": -5
+}
+
