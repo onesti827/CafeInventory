@@ -24,10 +24,13 @@ public class RestockTransaction extends AuditableEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Many transactions per ingredient
+    // Many transactions per ingredient.
+    // @ToString.Exclude: Lombok's generated toString would otherwise trigger
+    // the lazy proxy (or blow up with LazyInitializationException outside a tx).
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ingredient_id", nullable = false)
+    @ToString.Exclude
     private Ingredient ingredient;
 
 //    Amount to add for restocking purposes
